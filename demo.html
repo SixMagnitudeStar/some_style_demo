@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>木頭柵欄側邊欄</title>
+<style>
+
+	.wood{
+		display: block;
+		z-index: 100;
+	}
+
+	.robe-box{
+		display: block;
+
+		overflow: hidden;        /* 裁切內容 */
+  		max-height: 0;           /* 預設收合 */
+		transition: max-height 2s ease;
+
+	}
+
+	.robe-box.show{
+		max-height: 150px;
+	}
+
+	.robe{
+		width:  50px;
+		height: auto;
+		z-index: 40;
+		display: inline-block;       /* 不要被壓縮 */
+	}
+
+	.block{
+		width: 45px;
+	}
+
+
+	li{
+		height: auto;
+		margin: 0;
+		padding: 0;
+		list-style: none;   /* 去掉圓點 */
+	}
+	ul{
+		padding: 0;
+		margin: 0;
+	}
+
+	.container{
+		margin-left: 100px;
+	}
+
+	.flex{
+		display: flex;
+	}
+
+
+.Bulletin-Board {
+    width: 60vw;
+    min-height: 200px; /* 給多點空間，看起來像布告欄 */
+    background-color: #fff8dc; /* 稍微米白色，像紙板 */
+    border: 8px solid #d2691e; /* 深橘棕色，模擬木框 */
+    border-radius: 12px; /* 邊角圓一點 */
+    padding: 20px;
+
+    /* 陰影效果 */
+    box-shadow: 4px 6px 10px rgba(0,0,0,0.2);
+
+    /* 文字居中 */
+    font-family: "Courier New", monospace;
+    font-size: 18px;
+    color: #333;
+}
+
+
+	.robe-box2{
+		display: block;
+
+		overflow: hidden;        /* 裁切內容 */
+  		max-height: 0;           /* 預設收合 */
+		transition: max-height 2s ease;
+
+	}
+
+	.robe-box2.show{
+		max-height: 500px;
+	}
+
+	.board{
+		width: 100%;
+	}
+
+	.image-text{
+		position: absolute;
+		top: 25%;
+		left: 15%;
+		white-space: pre-line;
+	}
+
+	.image-text2{
+		position: absolute;
+		top: 5%;
+		left: 15%;
+		white-space: pre-line;
+	}
+
+	.image-container{
+		display: block;
+		width: 300px;
+		position: relative;
+	}
+
+	p{
+		font-family: DFKai-SB, sans-serif;
+	}
+
+</style>
+</head>
+<body>
+<p>哈囉哈</p>
+	<div class="container">
+		<ul>
+			<img class='wood' src="images/wood.PNG">
+			<li>
+				<div class='robe-box'>
+					<div class='flex'>
+						<img class="robe" src="images/robe.PNG">
+						<div class="block"></div>
+						<img class="robe" src="images/robe.PNG">
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<img class='wood special' src="images/wood.PNG">
+			<li>
+				<div class='robe-box2'>
+					<div class='flex'>
+						<img class="robe" src="images/robe.PNG">
+						<div class="block"></div>
+						<img class="robe" src="images/robe.PNG">
+					</div>
+					<div class="Bulletin-Board">
+	                    測試
+	                </div>
+	                <div class='flex'>
+						<img class="robe" src="images/robe.PNG">
+						<div class="block"></div>
+						<img class="robe" src="images/robe.PNG">
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<img class='wood'  src="images/wood.PNG">
+			<li>
+				<div class='robe-box'>
+					<div class='flex'>
+						<img class="robe" src="images/robe.PNG">
+						<div class="block"></div>
+						<img class="robe" src="images/robe.PNG">
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<img class='wood' src="images/wood.PNG">
+			<li>
+				<div class='robe-box'>
+					<div class='flex'>
+						<img class="robe" src="images/robe.PNG">
+						<div class="block"></div>
+						<img class="robe" src="images/robe.PNG">
+					</div>
+				</div>
+			</li>
+			<img class='wood' src="images/wood.PNG">
+		</ul>
+	</div>
+
+
+	<div class="image-container">
+		<img class="board" src="https://img.freepik.com/free-vector/wooden-sign-with-mushrooms_1308-172731.jpg?semt=ais_hybrid&w=740&q=80">
+		<div class="image-text">
+			公佈欄訊息
+			事項一：
+			事項二：
+		</div>
+	</div>
+
+
+	<div class="image-container">
+		<img class="board" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDI-RS2-i47GFq270f41b4aL8sagb254hLYF-OC-pkBw9aI5PDWBCNl680Va35mKiz94c&usqp=CAU">
+		<div class="image-text2">
+			公佈欄訊息
+		</div>
+	</div>
+
+<script>
+
+
+document.querySelectorAll(".wood").forEach(item => {
+	item.addEventListener("click", () => {
+		const robebox = item.closest('ul').querySelector(".robe-box");
+
+		if (robebox){	
+			robebox.classList.toggle('show');
+		}
+	})
+})
+
+
+document.querySelectorAll(".wood.special").forEach(item => {
+	item.addEventListener("click", () => {
+		const robebox = item.closest('ul').querySelector(".robe-box2");
+
+		if (robebox){	
+			robebox.classList.toggle('show');
+		}
+	})
+})
+
+</script>
+</body>
+</html>
